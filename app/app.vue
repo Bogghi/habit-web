@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <button></button>
+  <div class="flex justify-center">
+    <Button >App</Button>
   </div>
 </template>
-
-<style>
-
-</style>
