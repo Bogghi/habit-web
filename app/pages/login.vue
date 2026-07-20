@@ -20,7 +20,7 @@
       </template>
       <template #footer>
         <div class="flex flex-col gap-4 mt-10">
-          <Button class="w-full" onClick="login">Login</Button>
+          <Button class="w-full" @click="login()">Login</Button>
           <Button severity="secondary" variant="outlined" class="w-full">Login with Google</Button>
           <div class="mt-2 text-center text-surface-500 text-sm">
             Don't have an account?
@@ -39,7 +39,7 @@ const password = ref('');
 const login = async () => {
   const { token } = await $fetch('/api/login', {
     method: 'POST',
-    body: {email, password}
+    body: {email: email.value, password: password.value}
   });
 };
 </script>
