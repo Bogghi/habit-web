@@ -32,6 +32,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       PRIMEUI_LICENSE: process.env.NUXT_PUBLIC_PRIMEUI_LICENSE,
+      DB_PATH: process.env.DB_PATH,
     }
   },
 })
