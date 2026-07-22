@@ -6,6 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  nitro: {
+    preset: 'bun',
+  },
   css: ["./app/assets/css/main.css"],
   modules: [
       "@primevue/nuxt-module",
@@ -30,9 +33,10 @@ export default defineNuxtConfig({
     ],
   },
   runtimeConfig: {
+    DB_PATH: process.env.DB_PATH,
+    JWT_SECRET: process.env.JWT_SECRET,
     public: {
       PRIMEUI_LICENSE: process.env.NUXT_PUBLIC_PRIMEUI_LICENSE,
-      DB_PATH: process.env.DB_PATH,
     }
   },
 })
