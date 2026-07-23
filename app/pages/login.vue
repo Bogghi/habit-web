@@ -50,4 +50,10 @@ const login = async () => {
   localStorage.setItem('token', token);
   await navigateTo('/app');
 };
+
+onMounted(() => {
+  if (localStorage.getItem('token')) {
+    navigateTo('/app');
+  }
+});
 </script>
