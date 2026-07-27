@@ -1,5 +1,5 @@
 import { eq } from 'drizzle-orm'
-import { db } from '#server/db/index'
+import { db } from '#server/db'
 import { users } from '#server/db/schema'
 import { signUserToken } from '#server/utils/jwt'
 

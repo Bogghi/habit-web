@@ -3,6 +3,8 @@ import { decodeJwt } from "jose";
 
 export default defineNuxtRouteMiddleware((to) => {
     if (to.path.startsWith('/app')) {
+        if (import.meta.server) return;
+
         const token = localStorage.getItem('token');
         if (!token) return navigateTo('/login');
 
