@@ -11,7 +11,8 @@ export default defineNuxtConfig({
   },
   css: ["./app/assets/css/main.css"],
   modules: [
-      "@primevue/nuxt-module",
+    "@primevue/nuxt-module",
+    '@pinia/nuxt',
   ],
   primevue: {
     usePrimeVue: true,

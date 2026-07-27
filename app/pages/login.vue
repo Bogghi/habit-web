@@ -22,7 +22,6 @@
       <template #footer>
         <div class="flex flex-col gap-4 mt-10">
           <Button class="w-full" @click="login()">Login</Button>
-<!--          <Button severity="secondary" variant="outlined" class="w-full">Login with Google</Button>-->
           <div class="mt-2 text-center text-surface-500 text-sm">
             Don't have an account?
             <NuxtLink to="/signup">
@@ -43,11 +42,7 @@ const email = ref('');
 const password = ref('');
 
 const login = async () => {
-  const { token } = await $fetch('/api/login', {
-    method: 'POST',
-    body: {email: email.value, password: password.value}
-  });
-  localStorage.setItem('token', token);
+  await userStore().login(email, password);
   await navigateTo('/app');
 };
 
