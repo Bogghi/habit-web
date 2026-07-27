@@ -11,3 +11,8 @@
     </Toolbar>
   </div>
 </template>
+
+<script setup>
+onMounted(() => initUser())
+const initUser = async () => userStore().getUserData()
+</script>

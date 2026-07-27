@@ -13,5 +13,5 @@ export default defineEventHandler(async (event) => {
 
    const token = await signUserToken(user.id)
 
-   return { token, id: user.id, name: user.name, email: user.email }
+   return { token }
 })

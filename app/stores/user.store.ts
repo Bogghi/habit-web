@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { useApi } from "~/composables/useApi"
 
 export const userStore = defineStore(
     'userStore',
@@ -10,14 +11,17 @@ export const userStore = defineStore(
         }),
         actions: {
             async login(emailVal: { value: string; }, password: { value: string; }) {
-                const { token, id, name, email } = await $fetch('/api/login', {
+                const { token } = await useApi<LoginResponse>('/api/login', {
                     method: 'POST',
                     body: {email: emailVal.value, password: password.value}
                 });
                 localStorage.setItem('token', token);
+            },
+            async getUserData() {
+                const { id, email, name } = await useApi<UserResponse>('/api/user', {method: 'GET'})
                 this.id = id
-                this.email = email
                 this.name = name
+                this.email = email
             }
         }
     }
