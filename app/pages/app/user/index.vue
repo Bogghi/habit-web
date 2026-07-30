@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>App home page</h1>
-  </div>
+<h1>ciaco</h1>
 </template>
 
 <script setup>

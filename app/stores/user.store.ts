@@ -5,6 +5,7 @@ export const userStore = defineStore(
     'userStore',
     {
         state: () => ({
+            loaded: false,
             id: null as number | null,
             name: null as string | null,
             email: null as string | null,
@@ -17,11 +18,14 @@ export const userStore = defineStore(
                 });
                 localStorage.setItem('token', token);
             },
-            async getUserData() {
+            async getUserData(refresh: {value: boolean} = {value: false}) {
+                if(this.loaded && !refresh) return
+                this.loaded = false
                 const { id, email, name } = await useApi<UserResponse>('/api/user', {method: 'GET'})
                 this.id = id
                 this.name = name
                 this.email = email
+                this.loaded = true
             }
         }
     }
