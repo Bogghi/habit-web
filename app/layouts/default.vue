@@ -13,7 +13,9 @@
         </NuxtLink>
       </template>
     </Toolbar>
-    <slot />
+    <div class="w-170">
+      <slot />
+    </div>
   </div>
 </template>
 
