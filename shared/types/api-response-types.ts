@@ -7,3 +7,7 @@ export interface UserResponse {
    name: string
    email: string
 }
+
+export interface UserDeleteResponse {
+   result: boolean
+}

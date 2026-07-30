@@ -35,6 +35,8 @@
 </template>
 
 <script setup>
+definePageMeta({ layout: false });
+
 const route = useRoute();
 const justRegistered = route.query.registered === '1';
 

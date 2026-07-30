@@ -36,6 +36,8 @@
 </template>
 
 <script setup>
+definePageMeta({ layout: false });
+
 const name = ref('');
 const email = ref('');
 const password = ref('');

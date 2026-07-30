@@ -26,6 +26,18 @@ export const userStore = defineStore(
                 this.name = name
                 this.email = email
                 this.loaded = true
+            },
+            async deleteUser() {
+                if(!this.loaded) return false
+                const { result } = await useApi<UserDeleteResponse>('/api/user', {method: 'DELETE'})
+                this.resetStore()
+                return result
+            },
+            resetStore() {
+                this.loaded = false
+                this.id = null
+                this.name = null
+                this.email = null
             }
         }
     }

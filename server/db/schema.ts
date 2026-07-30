@@ -5,5 +5,5 @@ export const users = sqliteTable("users", {
     name: text().notNull(),
     email: text().notNull(),
     password: text().notNull(),
-    delete: integer({ mode: "boolean"}).default(false)
+    deleted: integer({ mode: "boolean"}).default(false)
 })

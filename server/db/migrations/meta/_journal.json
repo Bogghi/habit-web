@@ -15,6 +15,13 @@
       "when": 1785421068002,
       "tag": "0001_condemned_nehzno",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1785448077808,
+      "tag": "0002_heavy_psynapse",
+      "breakpoints": true
     }
   ]
 }

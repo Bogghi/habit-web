@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
     if(!user) {
         throw createError({statusCode: 401, statusMessage: 'User not found'})
     }
-    await db.update(users).set({ delete: true }).where(eq(users.id, userId)).returning()
+    await db.update(users).set({ deleted: true }).where(eq(users.id, userId)).returning()
 
     return { result: true }
 })
