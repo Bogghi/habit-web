@@ -10,6 +10,7 @@ export const users = sqliteTable("users", {
 
 export const habits = sqliteTable('habits', {
     id: int().primaryKey({ autoIncrement: true}),
+    userId: int().notNull().references(() => users.id),
     name: text().notNull(),
     frequency: text({ enum: ['daily', 'weekly', 'monthly'] }).notNull(),
     reached: integer({ mode: "boolean" }).default(false),

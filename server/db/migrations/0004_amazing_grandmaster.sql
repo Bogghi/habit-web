@@ -1,0 +1,1 @@
+ALTER TABLE `habits` ADD `userId` integer NOT NULL REFERENCES users(id);
