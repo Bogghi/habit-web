@@ -16,7 +16,7 @@ export const userStore = defineStore('userStore', () => {
     }
 
     async function getUserData(refresh: {value: boolean} = {value: false}) {
-        if(loaded.value && !refresh) return
+        if((loaded.value && !refresh) || localStorage.getItem('token') === null) return
         loaded.value = false
         const data = await useApi<UserResponse>('/api/user', {method: 'GET'})
         id.value = data.id
