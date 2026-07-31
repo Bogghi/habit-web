@@ -23,10 +23,15 @@
         </div>
       </template>
       <template #footer>
-        <Button severity="danger" class="mt-5 w-full" @click="() => visible = true">
-          <Trash/>
-          Cancella dati utente
-        </Button>
+        <div class="flex flex-col gap-2">
+          <Button severity="danger" class="mt-5 w-full" @click="() => visible = true">
+            <Trash/>
+            Cancella dati utente
+          </Button>
+          <Button severity="warn" variant="outlined" class="w-full" @click="logout">
+            <SignOut/> Logout
+          </Button>
+        </div>
       </template>
     </Card>
     <Dialog v-model:visible="visible" modal header="Cancella utente" :pt="{ root: { class: 'w-96' } }">
@@ -47,7 +52,7 @@
 </template>
 
 <script setup>
-import { User, Trash, ExclamationTriangle } from '@primeicons/vue'
+import { User, Trash, ExclamationTriangle, SignOut } from '@primeicons/vue'
 definePageMeta({
   layout: 'default'
 })
@@ -68,4 +73,10 @@ const deleteUser = async () => {
     deleting.value = false
   }
 }
+const logout = async () => {
+  localStorage.removeItem('token')
+  userStore().resetStore()
+  await navigateTo('/')
+}
+
 </script>
